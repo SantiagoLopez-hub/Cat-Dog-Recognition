@@ -37,3 +37,11 @@ cnn.add(tf.keras.layers.Conv2D(
 
 # Pooling
 cnn.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=2))
+
+# Add second convolutional layer
+cnn.add(tf.keras.layers.Conv2D(
+    filters=32,
+    kernel_size=3,
+    activation='relu'))
+
+cnn.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=2))
