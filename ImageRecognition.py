@@ -1,5 +1,7 @@
 import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator
+from keras.preprocessing import image
+import numpy as np
 
 print(tf.__version__)
 
@@ -66,3 +68,21 @@ cnn.compile(
     metrics=['accuracy'])
 
 cnn.fit(x=training_set, validation_data=testing_set, epochs=25)
+
+# Make prediction
+test_image = image.load_img(
+    'dataset/single_prediction/cat_or_dog_1.jpg',
+    target_size=(64, 64))
+
+# Convert PIL to array
+test_image = image.img_to_array(test_image)
+test_image = np.expand_dims(test_image, axis=0)
+
+result = cnn.predict(test_image)
+training_set.class_indices
+if result[0][0] == 1:
+    prediction = 'dog'
+else:
+    prediction = 'cat'
+
+print(prediction)
