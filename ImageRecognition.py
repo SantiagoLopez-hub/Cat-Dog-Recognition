@@ -45,3 +45,16 @@ cnn.add(tf.keras.layers.Conv2D(
     activation='relu'))
 
 cnn.add(tf.keras.layers.MaxPool2D(pool_size=2, strides=2))
+
+# Flattening
+cnn.add(tf.keras.layers.Flatten())
+
+# Full connection
+cnn.add(tf.keras.layers.Dense(
+    units=128,
+    activation='relu'))
+
+# Output layer
+cnn.add(tf.keras.layers.Dense(
+    units=1,
+    activation='sigmoid'))
