@@ -27,3 +27,15 @@ testing_set = test_datagen.flow_from_directory(
 	target_size=(64, 64),
 	batch_size=32,
 	class_mode='binary')
+
+
+# Initialising Convolutional Neural Network
+cnn = tf.keras.models.Sequential()
+
+# Convolution
+cnn.add(tf.keras.layers.Conv2D(
+	filters=32,
+	kernel_size=3,
+	activation='relu',
+	input_shape=[64,64,3]))
+
