@@ -58,3 +58,11 @@ cnn.add(tf.keras.layers.Dense(
 cnn.add(tf.keras.layers.Dense(
     units=1,
     activation='sigmoid'))
+
+# Compile and train CNN
+cnn.compile(
+    optimizer='adam',
+    loss='binary_crossentropy',
+    metrics=['accuracy'])
+
+cnn.fit(x=training_set, validation_data=testing_set, epochs=25)
