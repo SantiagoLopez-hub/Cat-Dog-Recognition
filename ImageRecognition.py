@@ -13,6 +13,6 @@ train_datagen = ImageDataGenerator(
 
 training_set = train_datagen.flow_from_directory(
 	'dataset/training_set',
-	target_size=(150,150),
+	target_size=(64, 64),
 	batch_size=32,
 	class_mode='binary')
